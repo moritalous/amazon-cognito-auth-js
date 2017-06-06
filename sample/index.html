@@ -22,8 +22,8 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="stylesheets/styleSheetStart.css">
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="dist/aws-cognito-sdk.js"></script>
-	<script src="dist/amazon-cognito-auth.min.js"></script>
+	<script src="../dist/aws-cognito-sdk.js"></script>
+	<script src="../dist/amazon-cognito-auth.min.js"></script>
 </head>
 
 <body  onload="onLoad()">
@@ -188,24 +188,24 @@
   // Initialize a cognito auth object.
 	function initCognitoSDK() {
 		var authData = {
-			ClientId : '<TODO: your app client ID here>', // Your client id here
-			AppWebDomain : '<TODO: your app web domain here>',
-			TokenScopesArray : '<TODO: your scope array here>',
-			RedirectUriSignIn : '<TODO: your redirect url when signed in here>',
-			RedirectUriSignOut : '<TODO: your redirect url when signed out here>'
+			ClientId : '7cnftekjeroaetfij87p0ucoif',
+			AppWebDomain : 'abc.auth.ap-northeast-1.amazoncognito.com',
+			tokenScopesArray : ['openid'],
+			redirectUriSignIn : 'https://moritalous.github.io/amazon-cognito-auth-js/sample/index.html',
+			redirectUriSignOut : 'https://moritalous.github.io/amazon-cognito-auth-js/sample/index.html'
 		};
 		var auth = new AWSCognito.CognitoIdentityServiceProvider.CognitoAuth(authData);
 		auth.userhandler = {
-			onSuccess: <TODO: your onSuccess callback here>,
-			onFailure: <TODO: your onFailure callback here>
-			/** E.g.
+			// onSuccess: <TODO: your onSuccess callback here>,
+			// onFailure: <TODO: your onFailure callback here>
+			
 			onSuccess: function(result) {
 				alert("Sign in success");
 				showSignedIn(result);
 			},
 			onFailure: function(err) {
 				alert("Error!" + err);
-			}*/
+			}
 		};
 		// The default response_type is "token", uncomment the next line will make it be "code".
 		// auth.useCodeGrantFlow();
